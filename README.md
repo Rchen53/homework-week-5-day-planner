@@ -1,10 +1,10 @@
 # homework-week-5-day-planner
 
-###Introduction:
+### Introduction:
 To build a simple daily planner that store a to do list in each time stamp from regular business hours of 9am - 5pm
 
 
-###Requirement:
+### Requirement:
 1. use jquery to traverse the DOM
 2. use moment to get live date
 3. store data into local storage
@@ -12,5 +12,5 @@ To build a simple daily planner that store a to do list in each time stamp from 
 5. javascript
 
 
-###reference:
+### reference:
 gabepettus's day planner
