@@ -12,5 +12,5 @@ To build a simple daily planner that store a to do list in each time stamp from 
 5. javascript
 
 
-### reference:
+### Reference:
 gabepettus's day planner
