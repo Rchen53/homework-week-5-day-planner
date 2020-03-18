@@ -28,9 +28,38 @@
       <p class="lead">A simple calendar app for scheduling your work day</p>
       <p id="currentDay" class="lead"></p>
     </header>
+
+    <!-- Timeblocks go here -->
     <div class="container">
-      <div id="timeblocks">
-      <!-- Timeblocks go here -->
+      <div id="timeblocks" class = "container">
+        <div id = "nine-am" class = "row">
+          <p>9:00AM <span><input><button class = "save">Save</button></span></p>
+        </div>
+        <div id = "ten-am" class = "row">
+          <p>10:00AM <span><input><button class = "save">Save</button></span></p>
+        </div>
+        <div id = "eleven-am" class = "row">
+          <p>11:00AM <span><input><button class = "save">Save</button></span></p>
+        </div>
+        <div id = "twelve-pm" class = "row">
+          <p>12:00PM <span><input><button class = "save">Save</button></span></p>
+        </div>
+        <div id = "one-pm" class = "row">
+          <p>1:00PM <span><input><button class = "save">Save</button></span></p>
+        </div>
+        <div id = "two-pm" class = "row">
+          <p>2:00PM <span><input><button class = "save">Save</button></span></p>
+        </div>
+        <div id = "three-pm" class = "row">
+          <p>3:00PM <span><input><button class = "save">Save</button></span></p>
+        </div>
+        <div id = "four-pm" class = "row">
+          <p>4:00PM <span><input><button class = "save">Save</button></span></p>
+        </div>
+        <div id = "five-pm" class = "row">
+          <p>5:00PM <span><input><button class = "save">Save</button></span></p>
+        </div>
+
     </div>
     </div>
 
@@ -43,8 +72,6 @@
       //create a variable for current day
       var currentDay = moment().format('dddd, MMMM Do YYYY');
 
-      //run test in console logs
-      var test = false;
 
       //append it to #currentDay
       $("#currentDay").append(currentDay);
@@ -59,12 +86,17 @@
         planTextArr[4] = "Picnic Lunch Outside";
       }
 
-      //Create a Save Button
-      var saveBtn = $("<button>").text("Save")
 
       //create an eventlistener that stores input to the localStorage after being clicked
         //have it preventDefault so it doesnt go to another page
- 
+      function handleSaves (){
+        var saveBtn = $(".save")
+        saveBtn.on("click", function() {
+          var storeAgenda = JSON.parse(localStorage.setItem())
+          console.log (storeAgenda)
+          return storeAgenda
+        }) 
+      }
 
 
       //build start time to reference a regular business hours of 9am - 5pm
@@ -72,46 +104,13 @@
         var index = hour - 9;
       }
 
-      //create timeblocks
-      var nineAM = $("<div>").text("9:00 AM");
-      var nineAmSpan = $("<span>").text("Agenda");
-     
-      var tenAM = $("<div>").text("10:00 AM");
-      var tenAmSpan = $("<span>").text("Agenda");
 
-      var elevenAM = $("<div>").text("11:00 AM");
-      var elevenAmSpan = $("<span>").text("Agenda");      
+      function handleInput () {
+        var toDoInput = $("input");
+        toDoInput(handleSaves)
+      }
+        //find a way to add each time onto the timeblock without DRY if possible\
 
-      var twelvePM = $("<div>").text("12:00 PM");
-      var twelvePmSpan = $("<span>").text("Agenda");
-            
-
-      var onePM = $("<div>").text("1:00 PM");
-      var onePmSpan = $("<span>").text("Agenda");
-            
-      var twoPM = $("<div>").text("2:00 PM");
-      var twoPmSpan = $("<span>").text("Agenda"); 
-
-      var threePM = $("<div>").text("3:00 PM");
-      var threePmSpan = $("<span>").text("Agenda");
-            
-      var fourPM = $("<div>").text("4:00 PM");
-      var fourPmSpan = $("<span>").text("Agenda"); 
-
-      var fivePM = $("<div>").text("5:00 PM");
-      var fivePmSpan = $("<span>").text("Agenda"); 
-        //find a way to add each time onto the timeblock without DRY if possible
-
-      //append timeblock with saveBtn
-      $("#timeblocks").append(nineAM, nineAmSpan, saveBtn)
-      $("#timeblocks").append(tenAM, tenAmSpan, saveBtn)
-      $("#timeblocks").append(elevenAM, elevenAmSpan, saveBtn)
-      $("#timeblocks").append(twelvePM, twelvePmSpan, saveBtn)
-      $("#timeblocks").append(onePM, onePmSpan, saveBtn)
-      $("#timeblocks").append(twoPM, twoPmSpan, saveBtn)
-      $("#timeblocks").append(threePM, threePM, saveBtn)
-      $("#timeblocks").append(fourPM, fourPmSpan, saveBtn)
-      $("#timeblocks").append(fivePM, fivePmSpan, saveBtn)
             //fix the save button to have it duplicate in each div and correct the span to have input field
 
       //create an input field for each span
@@ -124,21 +123,7 @@
       //color coordinate the passed hours, current hours, and future hours by adding css attribute and have it correspond to the hour user is in
 
       //test to see if it works
-
-
-
-
   })
-
-
-
-
-
-
-
-      //take reference from videos on youtube
-      //take reference on searches in stackoverflow
-      //take reference from gabepettus's Day Planner if stuck
 
 
     </script>
